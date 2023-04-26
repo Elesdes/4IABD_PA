@@ -2,9 +2,6 @@ import asyncio
 
 import pandas as pd
 import yt_dlp as yt
-from dotenv import load_dotenv
-
-load_dotenv()
 
 yt.utils.bug_reports_message = lambda: ''
 
@@ -33,43 +30,30 @@ ffmpeg_options = {
 ytdl = yt.YoutubeDL(ytdl_format_options)
 
 
-class YTDLSource():
-    def __init__(self, source, *, data):
-        super().__init__(source)
+class YTDLSource:
+    def __init__(self, data):
         self.data = data
         self.title = data.get('title')
         self.url = ""
 
     @classmethod
-    async def from_url(cls, url, *, loop=None, stream=False):
+    async def from_url(cls, music_name, loop=None):
         loop = loop or asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url, download=not stream))
+        data = await loop.run_in_executor(None,
+                                          lambda: ytdl.extract_info(music_name))
         if 'entries' in data:
-            # take first item from a playlist
             data = data['entries'][0]
-        filename = data['title'] if stream else ytdl.prepare_filename(data)
-        return filename
-
-    @classmethod
-    async def from_playlist(cls, url, *, loop=None, stream=False):
-        loop = loop or asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url, download=not stream))
-        filename = []
-        data_file = []
-        if 'entries' in data:
-            for yt_file in data['entries']:
-                data_file.append(yt_file)
-            for yt_file in data_file:
-                filename.append(yt_file['title'] if stream else ytdl.prepare_filename(yt_file))
+        filename = ytdl.prepare_filename(data)
         return filename
 
 
 async def start(loop):
-    df = pd.read_csv('data/done.csv', sep=",")
-    for index, row in df.iterrows():
+    df = pd.read_csv('data/scraped/complete_kaggle_dataset.csv')
+    for row in df.values:
         try:
-            await YTDLSource.from_url(f"{row['TITRE']}_{row['ARTISTE']}", loop=loop)
-        except:
+            await YTDLSource.from_url(music_name=f"{row['track_name']}_{row['artist_name']}",
+                                      loop=loop)
+        except Exception as e:
             # TODO: Que faire des erreurs de downloads?
             # Propositions: mettre les musiques problématiques dans un autre fichier
             pass
