@@ -17,7 +17,11 @@ def root():
 
 @app.get('/test', response_class=HTMLResponse)
 def test(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})\
+
+@app.get('/About', response_class=HTMLResponse)
+def test(request: Request):
+    return templates.TemplateResponse("/about.html", {"request": request})
 
 
 if __name__ == "__main__":
