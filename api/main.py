@@ -6,6 +6,7 @@ import uvicorn
 
 app = FastAPI()
 app.mount('/static', StaticFiles(directory='static'), name='static')
+app.mount('/templates', StaticFiles(directory='templates'), name='templates')
 
 templates = Jinja2Templates(directory="templates")
 
@@ -15,9 +16,17 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.get('/about', response_class=HTMLResponse)
-async def about(request: Request):
+@app.get('/test', response_class=HTMLResponse)
+def test(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})\
+
+@app.get('/About', response_class=HTMLResponse)
+def test(request: Request):
     return templates.TemplateResponse("/about.html", {"request": request})
+
+@app.get('/generative', response_class=HTMLResponse)
+def test(request: Request):
+    return templates.TemplateResponse("generative.html", {"request": request})
 
 
 if __name__ == "__main__":
