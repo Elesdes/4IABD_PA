@@ -21,7 +21,7 @@ async def index(request: Request):
 
 @app.get('/test', response_class=HTMLResponse)
 def test(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request, "name": ""})
 
 
 @app.get('/About', response_class=HTMLResponse)
