@@ -10,7 +10,8 @@ router = APIRouter()
 async def create_upload_file(file: UploadFile = File(...)):
     with open(f"musique/{file.filename}", "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    if file.content_type not in ["image/jpeg", "image/png", "image/gif"]:
+    # print(file.content_type)
+    if file.content_type not in ["video/mp4", "audio/mpeg", "application/octet-stream", "video/3gpp", "audio/x-m4a"]:
         return RedirectResponse(url="/test", status_code=status.HTTP_403_FORBIDDEN)
     return RedirectResponse(url="/index", status_code=status.HTTP_302_FOUND)
 
