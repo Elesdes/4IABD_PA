@@ -75,7 +75,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="banner_taital">Find the generation of </h1>
-                    <h1 class="banner_text">YOUR MUSIC</h1>
+                    <h1 class="banner_text">YOUR MUSIC: {{name}}</h1>
                     <div class="banner_main">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -87,11 +87,10 @@
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                            <form action="http://127.0.0.1:8001/uploader" method="POST" enctype="multipart/form-data">
+                            <form action="./uploader" method="POST" enctype="multipart/form-data">
                              <input type="file" name="file" />
                              <input type="submit"/>
                             </form>
-                            <h1>Item ID: {{ id }}</h1>
                         </div>
                         <div class="main">
                             <!-- Another variation with a button -->

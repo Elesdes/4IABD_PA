@@ -1,12 +1,13 @@
-import shutil
-
-from fastapi import FastAPI, Request, UploadFile, File, status
-from fastapi.responses import HTMLResponse, RedirectResponse
+import uvicorn
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import uvicorn
+from python.index import test_response
+from python import index
 
 app = FastAPI()
+app.include_router(index.router)
 app.mount('/static', StaticFiles(directory='static'), name='static')
 app.mount('/templates', StaticFiles(directory='templates'), name='templates')
 
@@ -20,33 +21,26 @@ async def index(request: Request):
 
 @app.get('/test', response_class=HTMLResponse)
 def test(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})\
+    return templates.TemplateResponse("index.html", {"request": request})
+
 
 @app.get('/About', response_class=HTMLResponse)
 def test(request: Request):
     return templates.TemplateResponse("/about.html", {"request": request})
 
+
 @app.get('/generative', response_class=HTMLResponse)
 def test(request: Request):
     return templates.TemplateResponse("generative.html", {"request": request})
 
-@app.get("/upload/", response_class=HTMLResponse)
-async def upload(request: Request):
-   return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/uploader/")
-async def create_upload_file(file: UploadFile = File(...)):
-   with open(f"musique/{file.filename}", "wb") as buffer:
-      shutil.copyfileobj(file.file, buffer)
-   return RedirectResponse(url="/upload/",status_code=status.HTTP_302_FOUND)
+@app.get("/index", response_class=HTMLResponse)
+async def read_item(request: Request):
+    name = test_response()
+    return templates.TemplateResponse("index.html", {"request": request, "name": name})
 
-
-@app.get("/index/{id}", response_class=HTMLResponse)
-async def read_item(request: Request, id: str):
-    return templates.TemplateResponse("item.html", {"request": request, "id": id})
 
 if __name__ == "__main__":
-    templates = Jinja2Templates(directory="templates")
     uvicorn.run("main:app",
                 host="127.0.0.1",
                 port=8001,
