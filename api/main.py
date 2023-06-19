@@ -24,7 +24,7 @@ def test(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "name": ""})
 
 
-@app.get('/About', response_class=HTMLResponse)
+@app.get('/about', response_class=HTMLResponse)
 def test(request: Request):
     return templates.TemplateResponse("/about.html", {"request": request})
 
