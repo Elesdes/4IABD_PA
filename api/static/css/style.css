@@ -235,12 +235,12 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     height: auto;
 }
 
 .bg-light {
-    background-color: #8eb50b!important;
+    background-color: #ecbf2d!important;
 }
 
 .sidenav {
@@ -305,7 +305,7 @@ button {
 }
 
 .login_text a:hover {
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 
 .navbar-light .navbar-brand {
@@ -383,10 +383,10 @@ button {
 }
 
 .custome_menu li a:hover {
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 .custome_menu li.active a{
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 
 .login_menu {}
@@ -409,7 +409,7 @@ button {
 }
 
 .login_menu li a:hover {
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 
 .banner_taital {
@@ -427,7 +427,7 @@ button {
     width: 35%;
     margin: 0 auto;
     font-size: 50px;
-    color: #8eb50b;
+    color: #ecbf2d;
     font-weight: 800;
     text-align: center;
     background-color: #ffffff;
@@ -449,7 +449,7 @@ button {
     float: left;
     font-size: 20px;
     color: #ffffff;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     padding: 10px 0px;
     text-align: center;
     border-radius: 5px;
@@ -647,7 +647,7 @@ input.form-control::placeholder {
     float: left;
     font-size: 16px;
     color: #fefbfb;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     text-align: center;
     padding: 10px 0px;
     font-weight: bold;
@@ -726,7 +726,7 @@ input.form-control::placeholder {
     float: left;
     font-size: 16px;
     color: #fcfcfd;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     text-align: center;
     padding: 10px 0px;
     font-weight: bold;
@@ -751,7 +751,7 @@ input.form-control::placeholder {
 .shop_section {
     width: 100%;
     float: left;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     height: auto;
     padding: 90px 0px;
     background-size: cover;
@@ -838,7 +838,7 @@ input.form-control::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 
 .many_text {
@@ -862,7 +862,7 @@ input.form-control::placeholder {
     left: -60px;
     right: 0px;
     top: 130%;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     color: #ffffff;
 }
 
@@ -889,7 +889,7 @@ input.form-control::placeholder {
 #my_slider .carousel-control-next:hover,
 #my_slider .carousel-control-prev:focus,
 #my_slider .carousel-control-next:focus {
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     color: #ffffff;
 }
 
@@ -933,7 +933,7 @@ input.form-control::placeholder {
     font-size: 16px;
     color: #363636;
     border: 0px;
-    border: 2px solid #8eb50b !important;
+    border: 2px solid #ecbf2d !important;
     background-color: #ffffff !important;
     padding: 10px 15px 10px 15px;
     margin-top: 20px;
@@ -944,7 +944,7 @@ input.form-control::placeholder {
     width: 100%;
     height: 110px;
     font-size: 18px;
-    border: 2px solid #8eb50b !important;
+    border: 2px solid #ecbf2d !important;
     background-color: #ffffff !important;
     padding: 40px 15px 10px 15px;
     margin-top: 20px;
@@ -959,7 +959,7 @@ input.form-control::placeholder {
 .send_bt a {
     width: 100%;
     float: left;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     color: #fefeff;
     text-align: center;
     padding: 12px 0px;
@@ -1014,7 +1014,7 @@ input.form-control::placeholder {
 .order_bt a {
     width: 100%;
     float: left;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     color: #fefeff;
     text-align: center;
     padding: 12px 0px;
@@ -1055,14 +1055,14 @@ input.form-control::placeholder {
 }
 
 .map_icon a:hover {
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 
 .address_text {
     width: 100%;
     float: left;
     font-size: 14px;
-    color: #8eb50b;
+    color: #ecbf2d;
     margin: 0px;
     padding-left: 23px;
 }
@@ -1132,10 +1132,10 @@ input.form-control::placeholder {
     border-radius: 100%;
 }
 .footer_menu li:hover::after {
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
 }
 .footer_menu li.active::after {
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
 }
 
 .padding_left15 {
@@ -1159,7 +1159,7 @@ input.form-control::placeholder {
 }
 
 .subscribe_menu li a:hover {
-    color: #8eb50b;
+    color: #ecbf2d;
 }
 
 .social_icon {
@@ -1192,7 +1192,7 @@ input.form-control::placeholder {
 }
 
 .social_icon li a:hover {
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     color: #ffffff;
 }
 
@@ -1205,7 +1205,7 @@ input.form-control::placeholder {
 .copyright_section {
     width: 100%;
     float: left;
-    background-color: #8eb50b;
+    background-color: #ecbf2d;
     height: auto;
 }
 
