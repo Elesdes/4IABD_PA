@@ -48,7 +48,7 @@ body {
     line-height: 1.80857;
     font-weight: normal;
     overflow-x: hidden;
-    background-image: url(../images/body-bg.png);
+    background-image: url(../images/background.jpg);
     height: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -343,7 +343,6 @@ button {
 .banner_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
     height: auto;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -686,7 +685,6 @@ input.form-control::placeholder {
 .blog_section_2 {
     width: 100%;
     float: left;
-    background-image: url(../images/about-bg.png);
     height: auto;
     padding: 20px 0px 70px 0pc;
     background-size: 100%;
@@ -915,7 +913,7 @@ input.form-control::placeholder {
 .contact_section_2 {
     width: 100%;
     text-align: center;
-    background-image: url(../images/contact-bg.png);
+    background-image: url(../images/error.jpg);
     height: auto;
     background-size: 100%;
     padding: 40px 0px 60px 0px;
