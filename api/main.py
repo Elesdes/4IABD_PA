@@ -19,9 +19,9 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.get('/test', response_class=HTMLResponse)
+@app.get('/unauthorized', response_class=HTMLResponse)
 def test(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "name": ""})
+    return templates.TemplateResponse("index.html", {"request": request, "class_year": "Veuillez soumettre un fichier de musique."})
 
 
 @app.get('/about', response_class=HTMLResponse)
@@ -37,7 +37,7 @@ def test(request: Request):
 @app.get("/index", response_class=HTMLResponse)
 async def read_item(request: Request):
     name = test_response()
-    return templates.TemplateResponse("index.html", {"request": request, "name": name})
+    return templates.TemplateResponse("index.html", {"request": request, "class_year": name})
 
 
 if __name__ == "__main__":
