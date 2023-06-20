@@ -16,8 +16,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    name = test_response()
-    return templates.TemplateResponse("index.html", {"request": request, "name": name})
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.get('/test', response_class=HTMLResponse)
@@ -33,6 +32,12 @@ def test(request: Request):
 @app.get('/generative', response_class=HTMLResponse)
 def test(request: Request):
     return templates.TemplateResponse("generative.html", {"request": request})
+
+
+@app.get("/index", response_class=HTMLResponse)
+async def read_item(request: Request):
+    name = test_response()
+    return templates.TemplateResponse("index.html", {"request": request, "name": name})
 
 
 if __name__ == "__main__":
