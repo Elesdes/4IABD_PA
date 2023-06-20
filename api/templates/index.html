@@ -39,12 +39,6 @@
     <div class="header_section">
         <div class="container">
             <nav class="navbar navbar-light bg-light justify-content-between">
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="/">Home</a>
-                    <a href="generative">Generate your own music</a>
-                    <a href="about">About</a>
-                </div>
                 <a class="logo" href="/"><img src="../static/images/logo.png"></a>
                 <span class="toggle" onclick="openNav()"><i class="fa fa-bars"></i></span>
             </nav>
@@ -68,42 +62,20 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="banner_taital">Find the generation of </h1>
-                    <h1 class="banner_text">YOUR MUSIC: {{name}}</h1>
+                    <h1 class="banner_text">YOUR MUSIC:<br> {{name}}</h1>
                     <div class="banner_main">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">All Category
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                        <div class="form-control">
                             <form action="./uploader" method="POST" enctype="multipart/form-data">
-                             <input type="file" name="file" />
-                             <input type="submit"/>
+                                <input type="file" name="file" />
+                                <!-- Another variation with a button -->
+                                <input type="submit"/>
                             </form>
                         </div>
-                        <div class="main">
-                            <!-- Another variation with a button -->
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-secondary" type="button"
-                                            style="background-color: #ffffff; border-color:#ffffff ">
-                                        <i class="fa fa-search" style="color: #191919;"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
-                    <div class="ordernow_bt"><a href="#">Order Now</a></div>
                 </div>
             </div>
         </div>
