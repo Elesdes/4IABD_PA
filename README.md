@@ -11,5 +11,4 @@ Tous les objectifs liés au projet sont détaillés dans l'onglet [Projet](https
 - Pour lancer le linter, utiliser la commande `flake8 path/to/code` dans le dossier du projet.
 
 ## FastAPI
-- Pour lancer l'API, utiliser la commande `uvicorn main:app --reload` dans le dossier du projet.
 - Sinon, lancer le script `api/main.py`.
