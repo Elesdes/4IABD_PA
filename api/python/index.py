@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from fastapi import UploadFile, File, status
+from fastapi import UploadFile, File, status, HTTPException
 from fastapi.responses import RedirectResponse
 import shutil
 
@@ -10,7 +10,7 @@ router = APIRouter()
 async def create_upload_file(file: UploadFile = File(...)):
     if file.filename == '':
         return RedirectResponse(url="/unauthorized", status_code=status.HTTP_302_FOUND)
-    with open(f"musique/{file.filename}", "wb") as buffer:
+    with open(f"music/{file.filename}", "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     # print(file.content_type)
     if file.content_type not in ["video/mp4", "audio/mpeg", "application/octet-stream", "video/3gpp", "audio/x-m4a"]:
