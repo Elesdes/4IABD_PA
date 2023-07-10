@@ -3,7 +3,6 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from python.index import test_response
 from python import index
 
 app = FastAPI()
@@ -35,9 +34,8 @@ def test(request: Request):
 
 
 @app.get("/index", response_class=HTMLResponse)
-async def read_item(request: Request):
-    name = test_response()
-    return templates.TemplateResponse("index.html", {"request": request, "class_year": name})
+async def read_item(request: Request, year):
+    return templates.TemplateResponse("index.html", {"request": request, "class_year": year})
 
 
 if __name__ == "__main__":
