@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 if __name__ == "__main__":
-    df_bill1 = pd.read_csv("musique.csv")
+    df_bill1 = pd.read_csv("music.csv")
     df_bill2 = pd.read_csv("musique2.csv")
     df_top50 = pd.read_csv("musique_fr.csv")
     df = pd.concat([df_bill1, df_bill2, df_top50])

@@ -20,7 +20,7 @@ async def index(request: Request):
 
 @app.get('/unauthorized', response_class=HTMLResponse)
 def test(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "class_year": "Veuillez soumettre un fichier de musique."})
+    return templates.TemplateResponse("index.html", {"request": request, "class_year": "Veuillez soumettre un fichier mp3."})
 
 
 @app.get('/about', response_class=HTMLResponse)

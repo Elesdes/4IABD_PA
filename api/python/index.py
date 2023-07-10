@@ -21,7 +21,8 @@ async def create_upload_file(file: UploadFile = File(...)):
     with open(f"music/{file.filename}", "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
     # print(file.content_type)
-    if file.content_type not in ["video/mp4", "audio/mpeg", "application/octet-stream", "video/3gpp", "audio/x-m4a"]:
+    if not file.filename.endswith('.mp3'):
+        os.remove(f"./music/{file.filename}")
         return RedirectResponse(url="/unauthorized", status_code=status.HTTP_302_FOUND)
 
     name = test_response(f"./music/{file.filename}")
