@@ -1,32 +1,20 @@
-# In this code, an API endpoint "/uploader" is defined using the FastAPI library.
-# It allows users to upload an audio file. The uploaded file is then processed,
-# and its music content is transformed into a spectrogram image.
-# This image is then processed by a pre-trained model to make a prediction about the decade the music came from.
-# After processing, both the audio file and the image file are deleted for housekeeping.
-# If an error occurs (for example, a file with no name or a non-MP3 file is uploaded),
-# the user is redirected to an "/unauthorized" page.
+import os
+import shutil
 
-
-# Importing the necessary libraries for the project
+import librosa
 import matplotlib.pylab as pylab
+import numpy as np
+import tensorflow as tf
 from fastapi import UploadFile, File, status, APIRouter
 from fastapi.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
 from keras.models import load_model
-import os
-import librosa
-import numpy as np
-import tensorflow as tf
-import shutil
 
-# Creating an instance of APIRouter
 router = APIRouter()
 
-# Setting up Jinja2 template engine to use "templates" directory
 templates = Jinja2Templates(directory="templates")
 
 
-# Endpoint for uploading files. It only accepts files as input.
 @router.post("/uploader")
 async def create_upload_file(file: UploadFile = File(...)):
     # If no filename is provided, redirect to "/unauthorized"
@@ -43,12 +31,13 @@ async def create_upload_file(file: UploadFile = File(...)):
         return RedirectResponse(url="/unauthorized", status_code=status.HTTP_302_FOUND)
 
     # Process the file and redirect to "/index" with a parameter indicating the predicted year
-    name = test_response(f"./music/{file.filename}")
-    return RedirectResponse(url="/index?year=" + name, status_code=status.HTTP_302_FOUND)
+    name = answer(f"./music/{file.filename}")
+    return RedirectResponse(
+        url=f"/index?year={name}", status_code=status.HTTP_302_FOUND
+    )
 
 
-# Function to process the file and predict the year
-def test_response(filepath):
+def answer(filepath):
     # Helper function to save the spectrogram image of an audio file
     def save_spectrogram_image(spectrogram, output_file, y_axis):
         pylab.figure(figsize=(12, 8))
@@ -68,13 +57,15 @@ def test_response(filepath):
     mfcc = librosa.feature.mfcc(y=y, sr=sr)
 
     # Save the MFCC as an image
-    save_spectrogram_image(mfcc, f"{os.path.splitext(filepath)[0] + '.png'}", y_axis='linear')
+    save_spectrogram_image(
+        mfcc, f"{f'{os.path.splitext(filepath)[0]}.png'}", y_axis='linear'
+    )
 
     # Delete original audio file
     os.remove(filepath)
 
     # Prepare for image classification
-    filepath = os.path.splitext(filepath)[0] + '.png'
+    filepath = f'{os.path.splitext(filepath)[0]}.png'
 
     # Load image and convert it to an array
     image = tf.keras.preprocessing.image.load_img(filepath, target_size=(224, 224))
@@ -96,4 +87,4 @@ def test_response(filepath):
     os.remove(filepath)
 
     # Return the prediction
-    return "Décennie: " + predictions
+    return f"Décennie: {predictions}"

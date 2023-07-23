@@ -8,10 +8,13 @@ Tous les objectifs liés au projet sont détaillés dans l'onglet [Projet](https
 - Installer les dépendances avec la commande `pip install -r requirements.txt` dans le dossier du projet.
 
 ## Linter
-- Pour lancer le linter, utiliser la commande `flake8 path/to/code` dans le dossier du projet.
+- Avec VSCode :
+  - Installer l'extension [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter).
+- Pour tout autre IDE :
+  - `pip install black` dans son environnemment Python
 
 ## FastAPI
 - Lancer le script `api/main.py`.
 
 ## Le site web
-- L'URL du site (attention de bien ouvrir l'instance EC2) http://13.38.138.141/
+- [Site Web](http://13.38.138.141/) (attention à bien ouvrir l'instance EC2)
