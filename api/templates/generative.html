@@ -71,20 +71,29 @@
                                     <h1 class="banner_taital">Find the generation of</h1>
                                     <h1 class="banner_text">YOUR MUSIC</h1>
                                     <div class="banner_main">
-                                        <div class="main">
-                                            <!-- Another variation with a button -->
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Search">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-secondary" type="button"
-                                                            style="background-color: #ffffff; border-color:#ffffff ">
-                                                        <i class="fa fa-search" style="color: #191919;"></i>
-                                                    </button>
+                                        <div class="col-md-12" style="text-align: center;">
+                                            <div class="main">
+                                                <!-- Another variation with a button -->
+                                                <div class="input-group">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">All Category
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Another action</a>
+                                                            <a class="dropdown-item" href="#">Something else here</a>
+                                                        </div>
+                                                        <form action="./uploader" method="POST" enctype="multipart/form-data">
+                                                         <input type="file" name="file" />
+                                                         <input type="submit"/>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="ordernow_bt"><a href="#">Submit now</a></div>
                                 </div>
                             </div>
                         </div>
