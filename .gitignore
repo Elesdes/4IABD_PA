@@ -3,3 +3,5 @@ data
 __pycache__
 .sourcery.yaml
 .vscode
+.pytest_cache
+logs

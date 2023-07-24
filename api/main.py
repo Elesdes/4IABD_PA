@@ -3,7 +3,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from python.index import test_response
+from python.index import answer
 from python import index
 
 app = FastAPI()
@@ -20,23 +20,18 @@ async def index(request: Request):
 
 
 @app.get('/test', response_class=HTMLResponse)
-def test(request: Request):
+async def test(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "name": ""})
 
 
-@app.get('/about', response_class=HTMLResponse)
-def test(request: Request):
-    return templates.TemplateResponse("/about.html", {"request": request})
-
-
 @app.get('/generative', response_class=HTMLResponse)
-def test(request: Request):
+async def generative(request: Request):
     return templates.TemplateResponse("generative.html", {"request": request})
 
 
 @app.get("/index", response_class=HTMLResponse)
 async def read_item(request: Request):
-    name = test_response()
+    name = answer()
     return templates.TemplateResponse("index.html", {"request": request, "name": name})
 
 
