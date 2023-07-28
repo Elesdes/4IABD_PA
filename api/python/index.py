@@ -48,7 +48,7 @@ def answer(filepath):
         pylab.close()
 
     # Load pre-trained model
-    model = load_model('../models/model.h5')
+    model = load_model('./models/model.h5')
 
     # Load audio file with librosa
     y, sr = librosa.load(filepath)

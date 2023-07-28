@@ -30,9 +30,8 @@ async def generative(request: Request):
 
 
 @app.get("/index", response_class=HTMLResponse)
-async def read_item(request: Request):
-    name = answer()
-    return templates.TemplateResponse("index.html", {"request": request, "name": name})
+async def read_item(request: Request, year):
+    return templates.TemplateResponse("index.html", {"request": request, "class_year": year})
 
 
 if __name__ == "__main__":

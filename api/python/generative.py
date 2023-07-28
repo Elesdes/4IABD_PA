@@ -4,7 +4,7 @@ import tensorflow as tf
 from fastapi import APIRouter, FileResponse
 
 router = APIRouter()
-generator = tf.keras.models.load_model('../models/generator.h5')
+generator = tf.keras.models.load_model('./models/generator.h5')
 noise_dim = 100
 file_path = '../temp/reconstructed.wav'
 
